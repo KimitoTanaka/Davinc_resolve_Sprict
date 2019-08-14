@@ -1,0 +1,561 @@
+{
+	Tools = ordered() {
+		phot001Merge11 = Merge {
+			NameSet = true,
+			Inputs = {
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, -49.5 } },
+		},
+		PipeRouter14 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "phot001Merge11",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 550, -49.5 } },
+		},
+		GOMediaOut1Merge10_1 = Merge {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = {
+				Background = Input {
+					SourceOp = "Merge11",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, -148.5 } },
+		},
+		ColorchangeX3_002phot = GroupOperator {
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Merge1_1",
+					Source = "Background",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "PipeRouter8_1",
+					Source = "Input",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Merge11",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 550, -148.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 1611, 525.258, 805.5, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -1677.5, 579.816 }
+			},
+			Tools = ordered() {
+				Merge11 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge6_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge9_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 2420, -379.5 } },
+				},
+				Merge9_1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge8_1",
+							Source = "Output",
+						},
+						Operator = Input { Value = FuID { "In" }, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 2255, -379.5 } },
+				},
+				Rectangle4_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 2, },
+						Height = Input {
+							SourceOp = "Rectangle4_1Height",
+							Source = "Value",
+						},
+						Angle = Input { Value = 45, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 2145, -478.5 } },
+				},
+				Merge8_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle4_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "PipeRouter11_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter7_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 2090, -379.5 } },
+				},
+				PipeRouter7_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "PipeRouter8_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 2035, -577.5 } },
+				},
+				PipeRouter12_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1980, -511.5 } },
+				},
+				PipeRouter11_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1980, -544.5 } },
+				},
+				Merge7_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "PipeRouter12_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge4_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1980, -280.5 } },
+				},
+				Merge6_1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge5_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge7_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1815, -412.5 } },
+				},
+				Rectangle3_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 1, },
+						Height = Input {
+							SourceOp = "Rectangle3_1Height",
+							Source = "Value",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1760, -280.5 } },
+				},
+				PipeRouter8_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Photo002Merge11",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 990, -577.5 } },
+				},
+				PipeRouter6_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "ColorCorrector3_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1650, -247.5 } },
+				},
+				PipeRouter3_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Merge1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1650, -148.5 } },
+				},
+				PipeRouter9_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1100, -544.5 } },
+				},
+				PipeRouter10_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1045, -544.5 } },
+				},
+				ColorCorrector3_1 = ColorCorrector {
+					Inputs = {
+						WheelTintAngle1 = Input { Value = -1.50662762230664, },
+						WheelTintLength1 = Input { Value = 0.538, },
+						ColorRanges = Input {
+							Value = ColorCurves {
+								Curves = {
+									{
+										Points = {
+											{ 0, 1 },
+											{ 0.4, 0.2 },
+											{ 0.6, 0 },
+											{ 1, 0 }
+										}
+									},
+									{
+										Points = {
+											{ 0, 0 },
+											{ 0.4, 0 },
+											{ 0.6, 0.2 },
+											{ 1, 1 }
+										}
+									}
+								}
+							},
+						},
+						HistogramIgnoreTransparent = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter3_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, -214.5 } },
+				},
+				Merge5_1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge2_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Merge3_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, -412.5 } },
+				},
+				Background1_1 = Background {
+					Inputs = {
+						GlobalOut = Input { Value = 148, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, -544.5 } },
+				},
+				Merge4_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle3_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter6_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1650, -313.5 } },
+				},
+				PipeRouter13_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1320, -511.5 } },
+				},
+				Rectangle2_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.642857142857143, 0.5 }, },
+						Width = Input {
+							SourceOp = "Rectangle2_1Width",
+							Source = "Value",
+						},
+						Height = Input { Value = 1.15333333333333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1430, -280.5 } },
+				},
+				PipeRouter4_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "ColorCorrector2_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1320, -247.5 } },
+				},
+				PipeRouter2_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Merge1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1320, -148.5 } },
+				},
+				ColorCorrector2_1 = ColorCorrector {
+					Inputs = {
+						WheelTintAngle1 = Input { Value = -0.258832861444067, },
+						WheelTintLength1 = Input { Value = 0.303, },
+						ColorRanges = Input {
+							Value = ColorCurves {
+								Curves = {
+									{
+										Points = {
+											{ 0, 1 },
+											{ 0.4, 0.2 },
+											{ 0.6, 0 },
+											{ 1, 0 }
+										}
+									},
+									{
+										Points = {
+											{ 0, 0 },
+											{ 0.4, 0 },
+											{ 0.6, 0.2 },
+											{ 1, 1 }
+										}
+									}
+								}
+							},
+						},
+						HistogramIgnoreTransparent = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter2_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1320, -214.5 } },
+				},
+				Merge3_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "PipeRouter13_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter4_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1320, -313.5 } },
+				},
+				Rectangle1_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input {
+							SourceOp = "Rectangle1_1Width",
+							Source = "Value",
+						},
+						Height = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1265, -115.5 } },
+				},
+				Merge2_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "PipeRouter9_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter5_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 1100, -313.5 } },
+				},
+				PipeRouter5_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "ColorCorrector1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1100, -247.5 } },
+				},
+				PipeRouter1_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Merge1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 1100, -148.5 } },
+				},
+				ColorCorrector1_1 = ColorCorrector {
+					Inputs = {
+						WheelTintAngle1 = Input { Value = 0.0201477628131259, },
+						WheelTintLength1 = Input { Value = 0.7165, },
+						ColorRanges = Input {
+							Value = ColorCurves {
+								Curves = {
+									{
+										Points = {
+											{ 0, 1 },
+											{ 0.4, 0.2 },
+											{ 0.6, 0 },
+											{ 1, 0 }
+										}
+									},
+									{
+										Points = {
+											{ 0, 0 },
+											{ 0.4, 0 },
+											{ 0.6, 0.2 },
+											{ 1, 1 }
+										}
+									}
+								}
+							},
+						},
+						HistogramIgnoreTransparent = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 1100, -214.5 } },
+				},
+				Merge1_1 = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "PipeRouter14",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter10_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 935, -214.5 } },
+				}
+			},
+		},
+		Rectangle4_1Height = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[34] = { -0.13, RH = { 42, 0.58 }, Flags = { Linear = true } },
+				[58] = { 2, LH = { 50, 1.29 }, Flags = { Linear = true } }
+			}
+		},
+		Rectangle3_1Height = BezierSpline {
+			SplineColor = { Red = 0, Green = 255, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[25] = { 0, RH = { 32, 0 } },
+				[46] = { 1, LH = { 39, 1 } }
+			}
+		},
+		Rectangle2_1Width = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[15] = { -0.03, RH = { 33.7, -0.02 } },
+				[40] = { 0.701, LH = { 21.85, 0.67 } }
+			}
+		},
+		Rectangle1_1Width = BezierSpline {
+			SplineColor = { Red = 225, Green = 255, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[5] = { 0, RH = { 29.8, 0.02 } },
+				[40] = { 1, LH = { 18.7, 0.969999999999999 } }
+			}
+		},
+		Photo002Merge11 = Merge {
+			NameSet = true,
+			Inputs = {
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, -148.5 } },
+		}
+	},
+	ActiveTool = "GOMediaOut1Merge10_1"
+}
