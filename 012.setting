@@ -1,0 +1,795 @@
+{
+	Tools = ordered() {
+		MediaIn1_7 = MediaIn {
+			ExtentSet = true,
+			CustomData = { MediaProps = { MEDIA_LAYERS_IN_OUT_LIST = { { 0, 599 } }, MEDIA_NAME = "Fusion Clip 11", MEDIA_HEIGHT = 1920, MEDIA_NUM_LAYERS = 1, MEDIA_START_FRAME = 0, MEDIA_SRC_FRAME_RATE = 29.97002997003, MEDIA_MARK_OUT = 598, MEDIA_WIDTH = 1080, MEDIA_NUM_FRAMES = 599, MEDIA_MARK_IN = 0, MEDIA_PAR = 1 }, },
+			Inputs = {
+				GlobalOut = Input { Value = 598, },
+				MediaID = Input { Value = "a6eee78e-d2ea-47ae-85e8-c77d004f9cf0", },
+				Layer = Input { Value = "", },
+				ClipTimeEnd = Input { Value = 598, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, -511.5 } },
+		},
+		MediaOut1_1 = MediaOut {
+			CtrlWZoom = false,
+			Inputs = {
+				Index = Input { Value = "0", },
+				Input = Input {
+					SourceOp = "Renderer3D2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, -544.5 } },
+		},
+		MediaIn1_8 = MediaIn {
+			ExtentSet = true,
+			CustomData = { MediaProps = { MEDIA_LAYERS_IN_OUT_LIST = { { 0, 599 } }, MEDIA_NAME = "Fusion Clip 11", MEDIA_HEIGHT = 1920, MEDIA_NUM_LAYERS = 1, MEDIA_START_FRAME = 0, MEDIA_SRC_FRAME_RATE = 29.97002997003, MEDIA_MARK_OUT = 598, MEDIA_WIDTH = 1080, MEDIA_NUM_FRAMES = 599, MEDIA_MARK_IN = 0, MEDIA_PAR = 1 }, },
+			Inputs = {
+				GlobalOut = Input { Value = 598, },
+				MediaID = Input { Value = "f762a937-6e1d-4846-8e0c-4e2e8a92513a", },
+				Layer = Input { Value = "", },
+				ClipTimeEnd = Input { Value = 598, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 275, -544.5 } },
+		},
+		G012 = GroupOperator {
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Transform4_1",
+					Source = "Input",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Transform4_1_1",
+					Source = "Input",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Renderer3D2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 440, -544.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 1061, 395.151, 530.5, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -412.5, 553.136 }
+			},
+			Tools = ordered() {
+				Transform4_1_1 = Transform {
+					Inputs = {
+						Input = Input {
+							SourceOp = "PipeRouter4",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, -280.5 } },
+				},
+				Transform4_1 = Transform {
+					Inputs = {
+						Input = Input {
+							SourceOp = "MediaIn1_8",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, -313.5 } },
+				},
+				Rectangle2 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.5, 0.8336 }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -247.5 } },
+				},
+				ImagePlane3D4 = ImagePlane3D {
+					Inputs = {
+						["Transform3DOp.Translate.Y"] = Input {
+							SourceOp = "ImagePlane3D4YOffset",
+							Source = "Value",
+						},
+						["Transform3DOp.Translate.Z"] = Input { Value = -0.29, },
+						["Transform3DOp.Rotate.X"] = Input {
+							SourceOp = "ImagePlane3D4XRotation",
+							Source = "Value",
+						},
+						["Transform3DOp.Scale.X"] = Input { Value = 1.176, },
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 5, },
+						MaterialInput = Input {
+							SourceOp = "Shadow1",
+							Source = "Output",
+						},
+						["MtlStdInputs.MaterialID"] = Input { Value = 5, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -412.5 } },
+				},
+				Merge7 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform4_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -313.5 } },
+				},
+				Instance_Text3D1 = Text3D {
+					SourceOp = "Text3D1",
+					Inputs = {
+						SceneInput = Input { },
+						["Transform3DOp.Translation"] = Input { },
+						["Transform3DOp.Translate.X"] = Input { Value = -0.24, },
+						["Transform3DOp.Rotation"] = Input { },
+						["Transform3DOp.PivotNest"] = Input { },
+						["Transform3DOp.ScaleNest"] = Input { },
+						["Transform3DOp.Scale.X"] = Input { Value = 0.659, },
+						["Transform3DOp.TargetNest"] = Input { },
+						Layout = Input { },
+						LayoutRotation = Input { },
+						TransformTransform = Input { },
+						TransformRotation = Input { },
+						TransformShear = Input { },
+						TransformSize = Input { },
+						Properties1 = Input { },
+						Color1 = Input { },
+						BevelMaterial = Input { },
+						Position1 = Input { },
+						Rotation1 = Input { },
+						Shear1 = Input { },
+						Size1 = Input { },
+						TextText = Input { },
+						StyledText = Input { Value = "TENPLATE\nTENPLATE\nTENPLATE", },
+						Extrusion = Input { },
+						AdvancedFontControls = Input { },
+						Internal = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -511.5 } },
+				},
+				Shadow1 = Shadow {
+					Inputs = {
+						Softness = Input { Value = 0.02992, },
+						Input = Input {
+							SourceOp = "Merge7",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, -346.5 } },
+				},
+				ImagePlane3D5 = ImagePlane3D {
+					Inputs = {
+						["Transform3DOp.Translate.Y"] = Input {
+							SourceOp = "ImagePlane3D5YOffset",
+							Source = "Value",
+						},
+						["Transform3DOp.Translate.Z"] = Input { Value = -0.21, },
+						["Transform3DOp.Rotate.X"] = Input {
+							SourceOp = "ImagePlane3D5XRotation",
+							Source = "Value",
+						},
+						["Transform3DOp.Scale.X"] = Input { Value = 1.129, },
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 6, },
+						MaterialInput = Input {
+							SourceOp = "Instance_Shadow1",
+							Source = "Output",
+						},
+						["MtlStdInputs.MaterialID"] = Input { Value = 6, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, -412.5 } },
+				},
+				Rectangle2_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, -247.5 } },
+				},
+				Text3D1 = Text3D {
+					Inputs = {
+						["Transform3DOp.Translate.Y"] = Input {
+							SourceOp = "Text3D1YOffset",
+							Source = "Value",
+						},
+						["Transform3DOp.Translate.Z"] = Input { Value = -0.0975153, },
+						["Transform3DOp.Rotate.Z"] = Input { Value = -90, },
+						["Transform3DOp.Scale.X"] = Input { Value = 0.817, },
+						StyledText = Input { Value = "TENPLATE", },
+						Font = Input { Value = "Open Sans", },
+						Style = Input { Value = "Bold", },
+						Size = Input { Value = 0.13, },
+						VerticalTopCenterBottom = Input { Value = 1, },
+						VerticalJustification = Input { Value = 3, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						ExtrusionProfile = Input {
+							SourceOp = "Text3D1ExtrusionProfile",
+							Source = "Value",
+						},
+						ManualFontKerningPlacement = Input {
+							Value = StyledText {
+								Array = {
+								},
+								Value = ""
+							},
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, -511.5 } },
+				},
+				Camera3D2 = Camera3D {
+					Inputs = {
+						["Transform3DOp.Translate.Z"] = Input { Value = 1.65, },
+						AoV = Input { Value = 19.2642683071402, },
+						PlaneOfFocus = Input { Value = 2.744, },
+						["Stereo.Mode"] = Input { Value = FuID { "Mono" }, },
+						FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+						ApertureW = Input { Value = 0.831496062992126, },
+						ApertureH = Input { Value = 0.467716535433071, },
+						ControlVis = Input { Value = 1, },
+						PerspFarClipSub = Input { Value = 2, },
+						PlaneOfFocusVis = Input { Value = 1, },
+						PlaneOfFocusSub = Input { Value = 10, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 8, },
+						["MtlStdInputs.MaterialID"] = Input { Value = 8, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -544.5 } },
+				},
+				Merge8 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform4_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, -313.5 } },
+				},
+				Instance_Shadow1 = Shadow {
+					SourceOp = "Shadow1",
+					Inputs = {
+						EffectMask = Input { },
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Merge8",
+							Source = "Output",
+						},
+						Depth = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, -346.5 } },
+				},
+				Rectangle2_2 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.5, 0.166 }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, -247.5 } },
+				},
+				PipeRouter1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Transform4_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 495, -214.5 } },
+				},
+				ImagePlane3D6 = ImagePlane3D {
+					Inputs = {
+						["Transform3DOp.Translate.Y"] = Input {
+							SourceOp = "ImagePlane3D6YOffset",
+							Source = "Value",
+						},
+						["Transform3DOp.Rotate.X"] = Input {
+							SourceOp = "ImagePlane3D6XRotation",
+							Source = "Value",
+						},
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 7, },
+						MaterialInput = Input {
+							SourceOp = "Instance_Shadow1_1",
+							Source = "Output",
+						},
+						["MtlStdInputs.MaterialID"] = Input { Value = 7, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, -412.5 } },
+				},
+				Renderer3D2 = Renderer3D {
+					CustomData = { ToolVersion = 2, },
+					Inputs = {
+						GlobalOut = Input { Value = 598, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						SceneInput = Input {
+							SourceOp = "Merge3D2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 880, -511.5 } },
+				},
+				Merge9 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_2",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform4_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, -313.5 } },
+				},
+				Instance_Shadow1_1 = Shadow {
+					SourceOp = "Shadow1",
+					Inputs = {
+						EffectMask = Input { },
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Merge9",
+							Source = "Output",
+						},
+						Depth = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 440, -346.5 } },
+				},
+				PipeRouter2 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Transform4_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 550, -214.5 } },
+				},
+				Merge3D2 = Merge3D {
+					Inputs = {
+						SceneInput1 = Input {
+							SourceOp = "ImagePlane3D4",
+							Source = "Output",
+						},
+						SceneInput2 = Input {
+							SourceOp = "ImagePlane3D5",
+							Source = "Output",
+						},
+						SceneInput3 = Input {
+							SourceOp = "ImagePlane3D6",
+							Source = "Output",
+						},
+						SceneInput4 = Input {
+							SourceOp = "Camera3D2",
+							Source = "Output",
+						},
+						SceneInput5 = Input {
+							SourceOp = "Instance_ImagePlane3D4",
+							Source = "Output",
+						},
+						SceneInput6 = Input {
+							SourceOp = "Instance_ImagePlane3D5",
+							Source = "Output",
+						},
+						SceneInput7 = Input {
+							SourceOp = "Instance_ImagePlane3D6",
+							Source = "Output",
+						},
+						SceneInput8 = Input {
+							SourceOp = "Text3D1",
+							Source = "Output",
+						},
+						SceneInput10 = Input {
+							SourceOp = "Instance_Text3D1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -478.5 } },
+				},
+				Background1 = Background {
+					Inputs = {
+						GlobalOut = Input { Value = 598, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 550, -313.5 } },
+				},
+				PipeRouter3 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Transform4_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 605, -214.5 } },
+				},
+				Instance_ImagePlane3D4 = ImagePlane3D {
+					SourceOp = "ImagePlane3D4",
+					Inputs = {
+						SceneInput = Input { },
+						["Transform3DOp.Translation"] = Input { },
+						["Transform3DOp.Rotation"] = Input { },
+						["Transform3DOp.PivotNest"] = Input { },
+						["Transform3DOp.ScaleNest"] = Input { },
+						["Transform3DOp.TargetNest"] = Input { },
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullFrontFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { },
+						["SurfacePlaneInputs.Lighting.Nest"] = Input { },
+						["SurfacePlaneInputs.Matte.Nest"] = Input { },
+						["SurfacePlaneInputs.BlendMode.Nest"] = Input { },
+						["SurfacePlaneInputs.Controls.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.Nest"] = Input { },
+						MaterialInput = Input {
+							SourceOp = "Instance_Shadow1_2",
+							Source = "Output",
+						},
+						["MtlStdInputs.Diffuse.Nest"] = Input { },
+						["MtlStdInputs.Specular.Nest"] = Input { },
+						["MtlStdInputs.Transmittance.Nest"] = Input { },
+						["MtlStdInputs.MaterialIDNest"] = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -412.5 } },
+				},
+				Instance_ImagePlane3D6 = ImagePlane3D {
+					SourceOp = "ImagePlane3D6",
+					Inputs = {
+						SceneInput = Input { },
+						["Transform3DOp.Translation"] = Input { },
+						["Transform3DOp.Rotation"] = Input { },
+						["Transform3DOp.PivotNest"] = Input { },
+						["Transform3DOp.ScaleNest"] = Input { },
+						["Transform3DOp.TargetNest"] = Input { },
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullFrontFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { },
+						["SurfacePlaneInputs.Lighting.Nest"] = Input { },
+						["SurfacePlaneInputs.Matte.Nest"] = Input { },
+						["SurfacePlaneInputs.BlendMode.Nest"] = Input { },
+						["SurfacePlaneInputs.Controls.Nest"] = Input { },
+						["SurfacePlaneInputs.ObjectID.Nest"] = Input { },
+						MaterialInput = Input {
+							SourceOp = "Instance_Shadow1_4",
+							Source = "Output",
+						},
+						["MtlStdInputs.Diffuse.Nest"] = Input { },
+						["MtlStdInputs.Specular.Nest"] = Input { },
+						["MtlStdInputs.Transmittance.Nest"] = Input { },
+						["MtlStdInputs.MaterialIDNest"] = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 880, -412.5 } },
+				},
+				Instance_ImagePlane3D5 = ImagePlane3D {
+					SourceOp = "ImagePlane3D5",
+					Inputs = {
+						SceneInput = Input { },
+						["Transform3DOp.Translation"] = Input { },
+						["Transform3DOp.Rotation"] = Input { },
+						["Transform3DOp.PivotNest"] = Input { },
+						["Transform3DOp.ScaleNest"] = Input { },
+						["Transform3DOp.TargetNest"] = Input { },
+						["SurfacePlaneInputs.Visibility.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullFrontFace"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Visibility.CullBackFace"] = Input { },
+						["SurfacePlaneInputs.Lighting.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Matte.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.BlendMode.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Controls.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.Nest"] = Input { Value = 1, },
+						MaterialInput = Input {
+							SourceOp = "Instance_Shadow1_3",
+							Source = "Output",
+						},
+						["MtlStdInputs.Diffuse.Nest"] = Input { },
+						["MtlStdInputs.Specular.Nest"] = Input { Value = 1, },
+						["MtlStdInputs.Transmittance.Nest"] = Input { },
+						["MtlStdInputs.MaterialIDNest"] = Input { Value = 1, },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -412.5 } },
+				},
+				Instance_Shadow1_2 = Shadow {
+					SourceOp = "Shadow1",
+					Inputs = {
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Merge7_1",
+							Source = "Output",
+						},
+						Depth = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+						EffectMask = Input { }
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -346.5 } },
+				},
+				Merge7_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_3",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -280.5 } },
+				},
+				Rectangle2_3 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.5, 0.8336 }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 660, -214.5 } },
+				},
+				Instance_Shadow1_3 = Shadow {
+					SourceOp = "Shadow1",
+					Inputs = {
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Merge8_1",
+							Source = "Output",
+						},
+						Depth = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+						EffectMask = Input { }
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -346.5 } },
+				},
+				Instance_Shadow1_4 = Shadow {
+					SourceOp = "Shadow1",
+					Inputs = {
+						SettingsNest = Input { },
+						Input = Input {
+							SourceOp = "Merge9_1",
+							Source = "Output",
+						},
+						Depth = Input { },
+						CommentsNest = Input { },
+						FrameRenderScriptNest = Input { },
+						StartRenderScripts = Input { },
+						EndRenderScripts = Input { },
+						EffectMask = Input { }
+					},
+					ViewInfo = OperatorInfo { Pos = { 880, -346.5 } },
+				},
+				Rectangle2_1_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -214.5 } },
+				},
+				Merge8_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_1_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 770, -280.5 } },
+				},
+				Merge9_1 = Merge {
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle2_2_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter3",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 880, -280.5 } },
+				},
+				Rectangle2_2_1 = RectangleMask {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Center = Input { Value = { 0.5, 0.166 }, },
+						Width = Input { Value = 1, },
+						Height = Input { Value = 0.333, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 880, -214.5 } },
+				}
+			},
+		},
+		ImagePlane3D4YOffset = BezierSpline {
+			SplineColor = { Red = 252, Green = 57, Blue = 47 },
+			NameSet = true,
+			KeyFrames = {
+				[18] = { -0.696, RH = { 20, -0.700666666666667 } },
+				[24] = { -0.71, LH = { 22, -0.705333333333333 }, RH = { 24.3333333333333, -0.580666666666667 }, Flags = { Linear = true } },
+				[25] = { -0.322, LH = { 24.6666666666667, -0.451333333333333 }, RH = { 37.16, -0.0712000000000002 }, Flags = { Linear = true } },
+				[44] = { 0, LH = { 37.6666353935615, 0 }, RH = { 70.6666666666667, -1.14380268096954e-016 } },
+				[124] = { -1.32967061662709e-016, LH = { 97.3333333333333, -1.32967061662709e-016 } }
+			}
+		},
+		ImagePlane3D4XRotation = BezierSpline {
+			SplineColor = { Red = 255, Green = 128, Blue = 128 },
+			NameSet = true,
+			KeyFrames = {
+				[131] = { 0, RH = { 135.333333333333, 0 } },
+				[144] = { -180, LH = { 139.666666666667, -180 } }
+			}
+		},
+		Text3D1YOffset = BezierSpline {
+			SplineColor = { Red = 252, Green = 57, Blue = 47 },
+			NameSet = true,
+			KeyFrames = {
+				[55] = { -0.487, RH = { 60, -0.487 } },
+				[70] = { 0.139, LH = { 59.2, 0.12 } }
+			}
+		},
+		Text3D1ExtrusionProfile = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.0196116135138184, 0.098058067569092 }, Flags = { Linear = true } },
+					[0.2] = { 1, LH = { 0.180388386486182, 0.901941932430908 }, RH = { 0.3, 1 }, Flags = { Linear = true } },
+					[0.8] = { 1, LH = { 0.7, 1 }, RH = { 0.819611613513818, 0.901941932430908 }, Flags = { Linear = true } },
+					[1] = { 0, LH = { 0.980388386486182, 0.098058067569092 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			NameSet = true,
+		},
+		ImagePlane3D5YOffset = BezierSpline {
+			SplineColor = { Red = 252, Green = 57, Blue = 47 },
+			NameSet = true,
+			KeyFrames = {
+				[12] = { -0.45, RH = { 19.8153846153846, -0.272769230769231 } },
+				[28] = { 0, LH = { 22.6666666666667, 0 }, RH = { 60, -9.05307653873762e-017 } },
+				[124] = { -1.32967061662709e-016, LH = { 92, -1.32967061662709e-016 } }
+			}
+		},
+		ImagePlane3D5XRotation = BezierSpline {
+			SplineColor = { Red = 255, Green = 128, Blue = 128 },
+			NameSet = true,
+			KeyFrames = {
+				[141] = { 0, RH = { 145, 0 } },
+				[153] = { -180, LH = { 149, -180 } }
+			}
+		},
+		ImagePlane3D6YOffset = BezierSpline {
+			SplineColor = { Red = 252, Green = 57, Blue = 47 },
+			NameSet = true,
+			KeyFrames = {
+				[5] = { -0.2, RH = { 8.33333333333333, -0.2 } },
+				[15] = { 0, LH = { 11.6666666666667, 0 } }
+			}
+		},
+		ImagePlane3D6XRotation = BezierSpline {
+			SplineColor = { Red = 255, Green = 128, Blue = 128 },
+			NameSet = true,
+			KeyFrames = {
+				[124] = { 0, RH = { 130.666666666667, 0 } },
+				[144] = { -180, LH = { 137.333333333333, -180 } }
+			}
+		},
+		PipeRouter4 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "MediaIn1_7",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 440, -511.5 } },
+		}
+	},
+	ActiveTool = "MediaOut1_1"
+}
